@@ -9,6 +9,7 @@ BUTTON_COLOR = "#E6E6FA"  # Фиалковый (кнопки)
 TEXT_COLOR = "#4B0082"  # Индиго (текст)
 COMBOBOX_COLOR = "#FFFFFF"  # Белый (выпадающие списки)
 
+# Словари с криптовалютами и валютами
 coins = {
     "bitcoin": "Bitcoin (BTC)",
     "ethereum": "Ethereum (ETH)",
@@ -29,6 +30,7 @@ fiat_currencies = {
     "rub": "RUB (Российский рубль)"
 }
 
+# Вспомогательные функции
 def get_coin_id(name):
     for coin_id, coin_name in coins.items():
         if coin_name == name:
@@ -39,6 +41,7 @@ def get_currency_code(name):
         if display_name == name:
             return code
 
+# Основная логика — получение курса и отработка ошибок
 def fetch_rate():
     coin = get_coin_id(coin_choice.get())
     currency = get_currency_code(currency_choice.get())
@@ -59,6 +62,7 @@ def fetch_rate():
     else:
         msgbox.showwarning("Внимание", "Выберите и криптовалюту, и фиатную валюту")
 
+# Создание графического интерфейса
 app = Tk()
 screen_w, screen_h = app.winfo_screenwidth(), app.winfo_screenheight()
 app.geometry(f"400x250+{screen_w//2-200}+{screen_h//2-150}")
