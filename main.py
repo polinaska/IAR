@@ -3,6 +3,12 @@ from tkinter import ttk
 from tkinter import messagebox as msgbox
 import requests
 
+# Цветовая схема
+BG_COLOR = "#FFF0F5"  # Нежно-розовый (фон)
+BUTTON_COLOR = "#E6E6FA"  # Фиалковый (кнопки)
+TEXT_COLOR = "#4B0082"  # Индиго (текст)
+COMBOBOX_COLOR = "#FFFFFF"  # Белый (выпадающие списки)
+
 coins = {
     "bitcoin": "Bitcoin (BTC)",
     "ethereum": "Ethereum (ETH)",
@@ -57,15 +63,22 @@ app = Tk()
 screen_w, screen_h = app.winfo_screenwidth(), app.winfo_screenheight()
 app.geometry(f"400x350+{screen_w//2-200}+{screen_h//2-150}")
 app.title("Конвертер криптовалют")
+app.configure(bg=BG_COLOR)
 
-Label(app, text="Криптовалюта:").pack(pady=5)
-coin_choice = ttk.Combobox(app, values=list(coins.values()))
+# Стиль для кнопки
+style = ttk.Style()
+style.configure('TButton', background=BUTTON_COLOR, foreground=TEXT_COLOR)
+
+# Виджеты с новой цветовой схемой
+Label(app, text="Криптовалюта:", bg=BG_COLOR, fg=TEXT_COLOR).pack(pady=5)
+coin_choice = ttk.Combobox(app, values=list(coins.values()), background=COMBOBOX_COLOR)
 coin_choice.pack(pady=5)
 
-Label(app, text="Фиатная валюта:").pack(pady=5)
-currency_choice = ttk.Combobox(app, values=list(fiat_currencies.values()))
+Label(app, text="Фиатная валюта:", bg=BG_COLOR, fg=TEXT_COLOR).pack(pady=5)
+currency_choice = ttk.Combobox(app, values=list(fiat_currencies.values()), background=COMBOBOX_COLOR)
 currency_choice.pack(pady=5)
 
-Button(app, text="Узнать курс", command=fetch_rate).pack(pady=20)
+Button(app, text="Узнать курс", command=fetch_rate, bg=BUTTON_COLOR, fg=TEXT_COLOR,
+       activebackground="#D8BFD8", activeforeground=TEXT_COLOR).pack(pady=20)
 
 app.mainloop()
