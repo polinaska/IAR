@@ -4,7 +4,7 @@ from tkinter import messagebox as msgbox
 import requests
 
 # Цветовая схема
-BG_COLOR = "#FFF0F5"  # Нежно-розовый (фон)
+BG_COLOR = "#FFB6C1"  # Розовый (фон)
 BUTTON_COLOR = "#E6E6FA"  # Фиалковый (кнопки)
 TEXT_COLOR = "#4B0082"  # Индиго (текст)
 COMBOBOX_COLOR = "#FFFFFF"  # Белый (выпадающие списки)
@@ -61,7 +61,7 @@ def fetch_rate():
 
 app = Tk()
 screen_w, screen_h = app.winfo_screenwidth(), app.winfo_screenheight()
-app.geometry(f"400x350+{screen_w//2-200}+{screen_h//2-150}")
+app.geometry(f"400x250+{screen_w//2-200}+{screen_h//2-150}")
 app.title("Конвертер криптовалют")
 app.configure(bg=BG_COLOR)
 
