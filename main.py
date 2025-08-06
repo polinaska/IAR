@@ -62,14 +62,14 @@ def fetch_rate():
 app = Tk()
 screen_w, screen_h = app.winfo_screenwidth(), app.winfo_screenheight()
 app.geometry(f"400x250+{screen_w//2-200}+{screen_h//2-150}")
-app.title("Конвертер криптовалют")
+app.title("Конвертер криптовалют для леди")
 app.configure(bg=BG_COLOR)
 
 # Стиль для кнопки
 style = ttk.Style()
 style.configure('TButton', background=BUTTON_COLOR, foreground=TEXT_COLOR)
 
-# Виджеты с новой цветовой схемой
+# Виджеты с розовой цветовой схемой
 Label(app, text="Криптовалюта:", bg=BG_COLOR, fg=TEXT_COLOR).pack(pady=5)
 coin_choice = ttk.Combobox(app, values=list(coins.values()), background=COMBOBOX_COLOR)
 coin_choice.pack(pady=5)
